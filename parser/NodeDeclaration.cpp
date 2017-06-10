@@ -6,6 +6,7 @@
 
 NodeDeclaration::NodeDeclaration() {
     type = NodeType::DECLARATION;
+    expression = nullptr;
 }
 
 NodeDeclaration *parseNodeDeclaration(ParserState &state) {
