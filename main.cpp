@@ -1,6 +1,12 @@
 
 #include <iostream>
 #include <fstream>
+#include <vector>
+#include "tokenizer/Token.h"
+#include "tokenizer/Tokenizer.h"
+#include "parser/Node.h"
+#include "parser/Parser.h"
+#include "assembler/Assembler.h"
 
 std::string readFile(char *fileName) {
     std::ifstream file(fileName);
@@ -28,5 +34,12 @@ int main(int argc, char **argv) {
         std::cerr << exception << std::endl;
         return 1;
     }
+    Tokenizer tokenizer;
+    std::vector<Token> tokens = tokenizer.tokenize(source);
+    Parser parser;
+    Node *node = parser.parse(tokens);
+    Assembler assembler;
+    std::string result = assembler.assembly(node);
+    std::cout << result << std::endl;
     return 0;
 }

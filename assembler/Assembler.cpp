@@ -3,3 +3,8 @@
 //
 
 #include "Assembler.h"
+
+std::string Assembler::assembly(Node *node) {
+    std::string result;
+    return result;
+}

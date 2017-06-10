@@ -6,8 +6,17 @@
 #define COMPILER_TOKEN_H
 
 
+#include <string>
+#include <unordered_set>
+
+enum class TokenType {ID, CONSTANT, TERMINAL};
+
 class Token {
 
+public:
+    const std::string value;
+    const TokenType type;
+    Token(const std::string &value, const TokenType &type) : value(value), type(type) {};
 };
 
 
