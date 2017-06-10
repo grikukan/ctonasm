@@ -37,7 +37,5 @@ void NodeExpression::assembly(ProgramState &state) {
         state.addLine("add eax, ebx");
     } else if (op == "-") {
         state.addLine("sub eax, ebx");
-    } else {
-        state.addLine("mov eax, ebx");
     }
 }

@@ -12,10 +12,11 @@
 #include "NodeDeclaration.h"
 #include "ParserState.h"
 #include "../assembler/ProgramState.h"
+#include "NodeAssignment.h"
 
 class NodeProgram : Node {
 private:
-    NodeExpression *expression;
+    NodeAssignment *assignment;
     NodeDeclaration *declaration;
     NodeProgram *program;
 public:

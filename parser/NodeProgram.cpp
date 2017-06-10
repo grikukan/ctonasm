@@ -3,10 +3,11 @@
 //
 
 #include "NodeProgram.h"
+#include "NodeAssignment.h"
 
 NodeProgram::NodeProgram() {
     type = NodeType::PROGRAM;
-    expression = nullptr;
+    assignment = nullptr;
     declaration = nullptr;
     program = nullptr;
 }
@@ -17,15 +18,15 @@ NodeProgram *parseNodeProgram(ParserState &state) {
     if (state.getNextToken().value == "int") {
         result->declaration = parseNodeDeclaration(state);
     } else {
-        result->expression = parseNodeExpression(state);
+        result->assignment = parseNodeAssignment(state);
     }
     result->program = parseNodeProgram(state);
     return result;
 }
 
 void NodeProgram::assembly(ProgramState &state) {
-    if (expression != nullptr) {
-        expression->assembly(state);
+    if (assignment != nullptr) {
+        assignment->assembly(state);
     } else {
         declaration->assembly(state);
     }
