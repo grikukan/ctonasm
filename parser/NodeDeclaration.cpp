@@ -21,3 +21,10 @@ NodeDeclaration *parseNodeDeclaration(ParserState &state) {
     return result;
 }
 
+void NodeDeclaration::assembly(ProgramState &state) {
+    state.addVariable(value);
+    if (expression != nullptr) {
+        expression->assembly(state);
+        state.addLine("mov dword[ebp - " + std::to_string(state.getAddress(value)) + "], eax");
+    }
+}

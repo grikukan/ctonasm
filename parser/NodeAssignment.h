@@ -15,6 +15,8 @@ private:
 public:
     NodeAssignment();
     friend NodeAssignment *parseNodeAssignment(ParserState &state);
+    void assembly(ProgramState &state);
+
 };
 
 NodeAssignment *parseNodeAssignment(ParserState &state);

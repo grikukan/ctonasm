@@ -3,8 +3,6 @@
 //
 
 #include "NodeProgram.h"
-#include "NodeDeclaration.h"
-#include "NodeExpression.h"
 
 NodeProgram::NodeProgram() {
     type = NodeType::PROGRAM;
@@ -23,4 +21,15 @@ NodeProgram *parseNodeProgram(ParserState &state) {
     }
     result->program = parseNodeProgram(state);
     return result;
+}
+
+void NodeProgram::assembly(ProgramState &state) {
+    if (expression != nullptr) {
+        expression->assembly(state);
+    } else {
+        declaration->assembly(state);
+    }
+    if (program != nullptr) {
+        program->assembly(state);
+    }
 }

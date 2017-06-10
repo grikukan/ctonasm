@@ -5,6 +5,7 @@
 #include "Assembler.h"
 
 std::string Assembler::assembly(NodeProgram *node) {
-    std::string result;
-    return result;
+    ProgramState state;
+    node->assembly(state);
+    return state.getSource();
 }

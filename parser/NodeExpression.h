@@ -8,6 +8,7 @@
 #include <string>
 #include "ParserState.h"
 #include "Node.h"
+#include "../assembler/ProgramState.h"
 
 class NodeExpression : Node {
 private:
@@ -17,6 +18,8 @@ private:
 public:
     NodeExpression();
     friend NodeExpression *parseNodeExpression(ParserState &state);
+    void assembly(ProgramState &state);
+
 };
 
 NodeExpression *parseNodeExpression(ParserState &state);

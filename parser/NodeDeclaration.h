@@ -16,8 +16,8 @@ private:
 public:
     NodeDeclaration();
     friend NodeDeclaration *parseNodeDeclaration(ParserState &state);
+    void assembly(ProgramState &state);
 };
 
 NodeDeclaration *parseNodeDeclaration(ParserState &state);
-
 #endif //COMPILER_NODEDECLARATION_H

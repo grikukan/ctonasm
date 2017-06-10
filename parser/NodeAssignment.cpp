@@ -17,3 +17,7 @@ NodeAssignment *parseNodeAssignment(ParserState &state) {
     result->expression = parseNodeExpression(state);
     return result;
 }
+void NodeAssignment::assembly(ProgramState &state) {
+    expression->assembly(state);
+    state.addLine("mov dword[ebp - " + std::to_string(state.getAddress(value)) + "], eax");
+}
