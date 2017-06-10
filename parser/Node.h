@@ -5,9 +5,11 @@
 #ifndef COMPILER_NODE_H
 #define COMPILER_NODE_H
 
+enum class NodeType {PROGRAM, DECLARATION, EXPRESSION, ASSIGNMENT};
 
 class Node {
-
+protected:
+    NodeType type;
 };
 
 

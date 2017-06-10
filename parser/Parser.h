@@ -9,10 +9,11 @@
 #include <vector>
 #include "Node.h"
 #include "../tokenizer/Token.h"
+#include "NodeProgram.h"
 
 class Parser {
 public:
-    Node *parse(const std::vector<Token> &tokens);
+    NodeProgram *parse(const std::vector<Token> &tokens);
 };
 
 

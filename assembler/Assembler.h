@@ -7,10 +7,11 @@
 
 #include <string>
 #include "../parser/Node.h"
+#include "../parser/NodeProgram.h"
 
 class Assembler {
 public:
-    std::string assembly(Node *node);
+    std::string assembly(NodeProgram *node);
 
 };
 

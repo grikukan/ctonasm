@@ -7,6 +7,7 @@
 #include "parser/Node.h"
 #include "parser/Parser.h"
 #include "assembler/Assembler.h"
+#include "parser/NodeProgram.h"
 
 std::string readFile(char *fileName) {
     std::ifstream file(fileName);
@@ -37,7 +38,7 @@ int main(int argc, char **argv) {
     Tokenizer tokenizer;
     std::vector<Token> tokens = tokenizer.tokenize(source);
     Parser parser;
-    Node *node = parser.parse(tokens);
+    NodeProgram *node = parser.parse(tokens);
     Assembler assembler;
     std::string result = assembler.assembly(node);
     std::cout << result << std::endl;

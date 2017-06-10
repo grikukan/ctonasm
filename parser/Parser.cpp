@@ -3,7 +3,11 @@
 //
 
 #include "Parser.h"
+#include "ParserState.h"
+#include "NodeProgram.h"
 
-Node *Parser::parse(const std::vector<Token> &tokens) {
-    return nullptr;
+NodeProgram *Parser::parse(const std::vector<Token> &tokens) {
+    ParserState state(tokens);
+    NodeProgram *program = parseNodeProgram(state);
+    return program;
 }

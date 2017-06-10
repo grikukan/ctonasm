@@ -4,7 +4,7 @@
 
 #include "Assembler.h"
 
-std::string Assembler::assembly(Node *node) {
+std::string Assembler::assembly(NodeProgram *node) {
     std::string result;
     return result;
 }
