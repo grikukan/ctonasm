@@ -22,6 +22,7 @@ NodeDeclaration *parseNodeDeclaration(ParserState &state) {
     return result;
 }
 
+
 void NodeDeclaration::assembly(ProgramState &state) {
     state.addVariable(value);
     if (expression != nullptr) {
