@@ -1,0 +1,5 @@
+int x = 2;
+int y;
+int p = 3;
+y = x + p;
+p = x - 4+y + p;
