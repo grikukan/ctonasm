@@ -7,10 +7,12 @@
 
 #include <string>
 #include "NodeCode.h"
+#include "NodeArgumentsDeclaration.h"
 
 class NodeFunctionDeclaration : Node {
 private:
     std::string value;
+    NodeArgumentsDeclaration *argumentsDeclaration;
     NodeCode *code;
 public:
     NodeFunctionDeclaration();

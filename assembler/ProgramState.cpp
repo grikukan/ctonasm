@@ -33,17 +33,25 @@ bool ProgramState::haveVariable(const std::string &name) {
 
 void ProgramState::addVariable(const std::string &name) {
     addLine("sub esp, 4");
-    stackOffset += 4;
+    stackOffset -= 4;
     variables[name] = Variable(stackOffset);
 }
 
+void ProgramState::addFunctionArgument(const std::string &name, size_t offset) {
+    variables[name] = Variable(offset);
+}
 void ProgramState::newFunction() {
     stackOffset = 0;
     variables.clear();
 }
 
-size_t ProgramState::getAddress(const std::string &name) {
-    return variables.at(name).address;
+std::string ProgramState::getAddress(const std::string &name) {
+    int32_t address = variables[name].address;
+    if (address >= 0) {
+        return "[ebp + " + std::to_string(address) + "]";
+    } else {
+        return "[ebp - " + std::to_string(-address) + "]";
+    }
 }
 
 std::string ProgramState::getSource() {

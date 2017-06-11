@@ -12,7 +12,7 @@ class Variable {
 public:
     size_t address;
     Variable() : address(0) {};
-    Variable(size_t address) : address(address) {};
+    Variable(int32_t address) : address(address) {};
 };
 
 

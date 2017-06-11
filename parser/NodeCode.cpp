@@ -3,12 +3,13 @@
 //
 
 #include "NodeCode.h"
+#include "NodeReturn.h"
 
 NodeCode::NodeCode() {
     type = NodeType::CODE;
-    assignment = nullptr;
     declaration = nullptr;
-    functionCall = nullptr;
+    expression = nullptr;
+    nodeReturn = nullptr;
     code = nullptr;
 }
 
@@ -18,20 +19,21 @@ NodeCode *parseNodeCode(ParserState &state) {
     NodeCode *result = new NodeCode();
     if (state.getNextToken().value == "int") {
         result->declaration = parseNodeDeclaration(state);
-    } else if (state.isFunction(state.getNextToken().value)) {
-        result->functionCall = parseNodeFunctionCall(state);
+    } else if (state.getNextToken().value == "return") {
+        result->nodeReturn = parseNodeReturn(state);
     } else {
-        result->assignment = parseNodeAssignment(state);
+        result->expression = parseNodeExpression(state);
     }
+    state.nextToken(); // ;
     result->code = parseNodeCode(state);
     return result;
 }
 
 void NodeCode::assembly(ProgramState &state) {
-    if (assignment != nullptr) {
-        assignment->assembly(state);
-    } else if (functionCall != nullptr) {
-        functionCall->assembly(state);
+    if (expression != nullptr) {
+        expression->assembly(state);
+    } else if (nodeReturn != nullptr) {
+        nodeReturn->assembly(state);
     } else {
         declaration->assembly(state);
     }

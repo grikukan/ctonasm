@@ -4,7 +4,7 @@
 
 #include "Tokenizer.h"
 
-const std::unordered_set<std::string> Tokenizer::terminals = {"int", "=", ";", "-", "+", "(", ")", "{", "}"};
+const std::unordered_set<std::string> Tokenizer::terminals = {"int", "=", ";", "-", "+", "(", ")", "{", "}", ","};
 
 bool Tokenizer::isSpace(char c) {
     return c == ' ' || c == '\n' || c == '\t';

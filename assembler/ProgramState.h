@@ -7,6 +7,7 @@
 
 
 #include <unordered_map>
+#include <string>
 #include "Variable.h"
 
 class ProgramState {
@@ -19,8 +20,9 @@ public:
     void addLine(const std::string &s);
     bool haveVariable(const std::string &name);
     void addVariable(const std::string &name);
+    void addFunctionArgument(const std::string &name, size_t offset);
     void newFunction();
-    size_t getAddress(const std::string &name);
+    std::string getAddress(const std::string &name);
     std::string getSource();
 };
 

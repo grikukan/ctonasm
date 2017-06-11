@@ -15,7 +15,6 @@ NodeFunctionCall *parseNodeFunctionCall(ParserState &state) {
     state.nextToken(); // (
     result->argumentsList = parseNodeArgumentsList(state);
     state.nextToken(); // )
-    state.nextToken(); // ;
     return result;
 }
 

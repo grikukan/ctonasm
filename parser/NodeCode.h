@@ -17,9 +17,9 @@
 
 class NodeCode : Node {
 private:
-    NodeAssignment *assignment;
     NodeDeclaration *declaration;
-    NodeFunctionCall *functionCall;
+    NodeExpression *expression;
+    NodeReturn *nodeReturn;
     NodeCode *code;
 public:
     NodeCode();

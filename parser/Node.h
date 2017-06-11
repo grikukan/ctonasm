@@ -6,7 +6,19 @@
 #define COMPILER_NODE_H
 
 enum class NodeType {PROGRAM, DECLARATION, EXPRESSION, ASSIGNMENT, ARGUMENTS_LIST, FUNCTION_CALL, FUNCTION_DECLARATION,
-                    CODE};
+                    CODE, UNARY_EXRESSION, NODE_RETURN, ARGUMENTS_DECLARATION};
+
+class NodeAssignment;
+class NodeArgumentsList;
+class NodeCode;
+class NodeDeclaration;
+class NodeExpression;
+class NodeFunctionCall;
+class NodeFunctionDeclaration;
+class NodeProgram;
+class NodeUnaryExpression;
+class NodeReturn;
+class NodeArumentsDeclaration;
 
 class Node {
 protected:

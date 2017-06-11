@@ -1,10 +1,8 @@
-void foo() {
-	int x = 2;
-	int y = 3;
-	PRINT_INT(x + y);
+int foo() {
+	return 2;
 }
 
 int main() {
-	foo();
-	foo();
+	int x = foo();
+	PRINT_INT(x);
 }

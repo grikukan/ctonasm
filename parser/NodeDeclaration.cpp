@@ -14,11 +14,11 @@ NodeDeclaration *parseNodeDeclaration(ParserState &state) {
     NodeDeclaration *result = new NodeDeclaration();
     state.nextToken();
     result->value = state.nextToken().value;
-    if (state.nextToken().value == ";") { // int x;
+    if (state.getNextToken().value == ";") { // int x;
         return result;
     } else {
-        result->expression = parseNodeExpression(state); // int x = <expression>;
-        state.nextToken(); // ; at the end
+        state.nextToken();
+        result->expression = parseNodeExpression(state); // int x = <expression>
     }
     return result;
 }
@@ -28,6 +28,6 @@ void NodeDeclaration::assembly(ProgramState &state) {
     state.addVariable(value);
     if (expression != nullptr) {
         expression->assembly(state);
-        state.addLine("mov dword[ebp - " + std::to_string(state.getAddress(value)) + "], eax");
+        state.addLine("mov dword" + state.getAddress(value) + ", eax");
     }
 }

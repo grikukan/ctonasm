@@ -9,12 +9,14 @@
 #include "ParserState.h"
 #include "Node.h"
 #include "../assembler/ProgramState.h"
+#include "NodeUnaryExpression.h"
 
 class NodeExpression : Node {
 private:
-    std::string value;
+    NodeUnaryExpression *unary;
+    NodeExpression *leftExpression;
     std::string op;
-    NodeExpression *expression;
+    NodeExpression *rightExpression;
 public:
     NodeExpression();
     friend NodeExpression *parseNodeExpression(ParserState &state);
