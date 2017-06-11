@@ -17,8 +17,7 @@ bool Tokenizer::isDigit(char c) {
 bool Tokenizer::isLetter(char c) {
     if (c >= 'a' && c <= 'z') return true;
     if (c >= 'A' && c <= 'Z') return true;
-    if (c == '_') return true;
-    return false;
+    return c == '_';
 }
 
 std::vector<Token> Tokenizer::tokenize(const std::string &source) {

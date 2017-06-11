@@ -3,7 +3,6 @@
 //
 
 #include "NodeProgram.h"
-#include "NodeAssignment.h"
 
 NodeProgram::NodeProgram() {
     type = NodeType::PROGRAM;
