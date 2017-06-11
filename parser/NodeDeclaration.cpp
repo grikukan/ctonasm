@@ -14,10 +14,11 @@ NodeDeclaration *parseNodeDeclaration(ParserState &state) {
     NodeDeclaration *result = new NodeDeclaration();
     state.nextToken();
     result->value = state.nextToken().value;
-    if (state.nextToken().value == ";") {
+    if (state.nextToken().value == ";") { // int x;
         return result;
     } else {
-        result->expression = parseNodeExpression(state);
+        result->expression = parseNodeExpression(state); // int x = <expression>;
+        state.nextToken(); // ; at the end
     }
     return result;
 }

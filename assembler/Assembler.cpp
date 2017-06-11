@@ -3,6 +3,7 @@
 //
 
 #include "Assembler.h"
+#include "../parser/NodeProgram.h"
 
 std::string Assembler::assembly(NodeProgram *node) {
     ProgramState state;

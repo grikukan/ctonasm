@@ -9,6 +9,7 @@
 #include <vector>
 #include "Node.h"
 #include "../tokenizer/Token.h"
+#include "NodeCode.h"
 #include "NodeProgram.h"
 
 class Parser {

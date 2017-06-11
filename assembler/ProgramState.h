@@ -19,6 +19,7 @@ public:
     void addLine(const std::string &s);
     bool haveVariable(const std::string &name);
     void addVariable(const std::string &name);
+    void newFunction();
     size_t getAddress(const std::string &name);
     std::string getSource();
 };

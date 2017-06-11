@@ -5,11 +5,21 @@
 #include "ProgramState.h"
 
 ProgramState::ProgramState() {
+    addLine("section .data");
+    addLine("PRINT_INT_STR db `%d\\n`, 0");
     addLine("section .text");
-    addLine("global main");
-    addLine("main:");
+    addLine("extern printf");
+    addLine("PRINT_INT:");
     addLine("push ebp");
     addLine("mov ebp, esp");
+    addLine("sub esp, 16");
+    addLine("and esp, -16");
+    addLine("mov dword[esp], PRINT_INT_STR");
+    addLine("mov eax, dword[ebp + 8]");
+    addLine("mov dword[esp + 4], eax");
+    addLine("call printf");
+    addLine("leave");
+    addLine("ret");
     stackOffset = 0;
 }
 void ProgramState::addLine(const std::string &s) {
@@ -25,6 +35,11 @@ void ProgramState::addVariable(const std::string &name) {
     addLine("sub esp, 4");
     stackOffset += 4;
     variables[name] = Variable(stackOffset);
+}
+
+void ProgramState::newFunction() {
+    stackOffset = 0;
+    variables.clear();
 }
 
 size_t ProgramState::getAddress(const std::string &name) {

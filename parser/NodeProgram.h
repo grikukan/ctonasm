@@ -1,23 +1,18 @@
-
 //
-// Created by gritukan on 6/10/17.
+// Created by gritukan on 6/11/17.
 //
 
 #ifndef COMPILER_NODEPROGRAM_H
 #define COMPILER_NODEPROGRAM_H
 
 
-#include "Node.h"
-#include "NodeExpression.h"
-#include "NodeDeclaration.h"
+#include "NodeFunctionDeclaration.h"
 #include "ParserState.h"
 #include "../assembler/ProgramState.h"
-#include "NodeAssignment.h"
 
 class NodeProgram : Node {
 private:
-    NodeAssignment *assignment;
-    NodeDeclaration *declaration;
+    NodeFunctionDeclaration *function;
     NodeProgram *program;
 public:
     NodeProgram();
@@ -26,4 +21,5 @@ public:
 };
 
 NodeProgram *parseNodeProgram(ParserState &state);
+
 #endif //COMPILER_NODEPROGRAM_H

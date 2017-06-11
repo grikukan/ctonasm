@@ -11,10 +11,11 @@ NodeAssignment::NodeAssignment() {
 
 NodeAssignment *parseNodeAssignment(ParserState &state) {
     if (!state.haveTokens()) return nullptr;
-    NodeAssignment *result = new NodeAssignment();
+    NodeAssignment *result = new NodeAssignment(); // <id> = expression;
     result->value = state.nextToken().value;
-    state.nextToken();
+    state.nextToken(); // =
     result->expression = parseNodeExpression(state);
+    state.nextToken(); // ;
     return result;
 }
 void NodeAssignment::assembly(ProgramState &state) {

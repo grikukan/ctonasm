@@ -13,10 +13,10 @@ NodeExpression *parseNodeExpression(ParserState &state) {
     if (!state.haveTokens()) return nullptr;
     NodeExpression *result = new NodeExpression();
     result->value = state.nextToken().value;
-    result->op = state.nextToken().value;
-    if (result->op == ";") {
+    if (state.getNextToken().value == ";" || state.getNextToken().value == ")") {
         return result;
     }
+    result->op = state.nextToken().value;
     result->expression = parseNodeExpression(state);
     return result;
 }

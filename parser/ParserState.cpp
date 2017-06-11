@@ -5,6 +5,7 @@
 #include "ParserState.h"
 
 ParserState::ParserState(const std::vector<Token> &tokens) : tokens(tokens) {
+    functionsNames = {"main", "PRINT_INT"};
     state = 0;
 }
 
@@ -27,6 +28,10 @@ Token ParserState::nextToken() {
 
 Token ParserState::getNextToken() {
     return tokens[state];
+}
+
+bool ParserState::isFunction(const std::string &name) {
+    return functionsNames.count(name);
 }
 
 

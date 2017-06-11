@@ -7,6 +7,7 @@
 
 #include <string>
 #include "../parser/Node.h"
+#include "../parser/NodeCode.h"
 #include "../parser/NodeProgram.h"
 
 class Assembler {

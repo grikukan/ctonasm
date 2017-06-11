@@ -12,10 +12,12 @@
 class ParserState {
 private:
     std::vector<Token> tokens;
+    std::unordered_set<std::string> functionsNames;
     size_t state;
 public:
     ParserState(const std::vector<Token> &tokens);
     bool haveTokens();
+    bool isFunction(const std::string &name);
     size_t getState();
     void setState(size_t state);
     Token nextToken();

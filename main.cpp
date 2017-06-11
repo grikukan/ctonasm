@@ -6,6 +6,7 @@
 #include "tokenizer/Tokenizer.h"
 #include "parser/Parser.h"
 #include "assembler/Assembler.h"
+#include "parser/NodeProgram.h"
 
 std::string readFile(char *fileName) {
     std::ifstream file(fileName);
