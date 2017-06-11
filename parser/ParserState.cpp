@@ -34,6 +34,10 @@ bool ParserState::isFunction(const std::string &name) {
     return functionsNames.count(name);
 }
 
+void ParserState::addFunction(const std::string &name) {
+    functionsNames.insert(name);
+}
+
 
 
 

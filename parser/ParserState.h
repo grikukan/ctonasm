@@ -18,6 +18,7 @@ public:
     ParserState(const std::vector<Token> &tokens);
     bool haveTokens();
     bool isFunction(const std::string &name);
+    void addFunction(const std::string &name);
     size_t getState();
     void setState(size_t state);
     Token nextToken();

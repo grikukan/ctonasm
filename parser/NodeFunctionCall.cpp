@@ -27,7 +27,9 @@ void NodeFunctionCall::assembly(ProgramState &state) {
     if (argumentsNumber != 0) {
         state.addLine("sub esp, " + std::to_string(4 * argumentsNumber));
     }
-    argumentsList->assembly(state);
+    if (argumentsList != nullptr) {
+        argumentsList->assembly(state);
+    }
     state.addLine("call " + value);
     if (argumentsNumber != 0) {
         state.addLine("add esp, " + std::to_string(4 * argumentsNumber));

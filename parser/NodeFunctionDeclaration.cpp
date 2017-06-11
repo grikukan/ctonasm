@@ -14,6 +14,7 @@ NodeFunctionDeclaration *parseNodeFunctionDeclaration(ParserState &state) {
     state.nextToken();
     NodeFunctionDeclaration *result = new NodeFunctionDeclaration();
     result->value = state.nextToken().value;
+    state.addFunction(result->value);
     state.nextToken(); // (
     state.nextToken(); // )
     state.nextToken(); // {
